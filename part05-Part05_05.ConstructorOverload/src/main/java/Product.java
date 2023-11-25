@@ -1,3 +1,4 @@
+import com.sun.org.apache.xalan.internal.xsltc.dom.StepIterator;
 
 public class Product {
 
@@ -11,6 +12,17 @@ public class Product {
         this.weight = weight;
     }
 
+    public Product(String name) {
+        this(name, "shelf", 1);
+    }
+
+    public Product(String name, String location) {
+        this(name, location, 1);
+    }
+
+    public Product(String name, int weight) {
+        this(name,"shelf", weight);
+    }
     
     public String getName() {
         return name;
