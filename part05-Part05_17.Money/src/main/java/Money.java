@@ -15,6 +15,45 @@ public class Money {
         this.cents = cents;
     }
 
+    public Money plus(Money addition) {
+        int totalCents = this.cents + addition.cents;
+        int totalEuros = this.euros + addition.euros;
+        Money newMoney = new Money(totalEuros,totalCents);
+
+        return newMoney;
+    }
+
+    public boolean lessThan(Money compared) {
+        if (this.euros < compared.euros) {
+            return true;
+        }
+
+        if (euros == compared.euros) {
+            if (cents < compared.cents) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public Money minus(Money decreaser) {
+        int totalCents = this.cents - decreaser.cents;
+        int totalEuros = this.euros - decreaser.euros;
+        System.out.println(totalEuros);
+        if (totalEuros >= 0) {
+            if (totalCents < 0) {
+                totalEuros -= 1;
+                totalCents += 100;
+            }
+        } else {
+            totalEuros = 0;
+            totalCents = 0;
+        }
+        Money newMoney = new Money(totalEuros, totalCents);
+        return newMoney;
+    }
+
     public int euros() {
         return this.euros;
     }
